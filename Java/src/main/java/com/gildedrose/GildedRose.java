@@ -12,6 +12,7 @@ class GildedRose {
         this.items = items;
     }
 
+    // Updates the quality and sellIn values for all items
     public void updateQuality() {
         for (Item item : items) {
             updateItemQuality(item);
@@ -20,6 +21,7 @@ class GildedRose {
         }
     }
 
+    // Updates the quality of an item based on its type
     private void updateItemQuality(Item item) {
         if (isSpecialItem(item)) {
             updateSpecialItemQuality(item);
@@ -31,12 +33,14 @@ class GildedRose {
         }
     }
 
+    // Decreases the sellIn value of an item, except for "Sulfuras"
     private void updateItemSellIn(Item item) {
         if (!item.name.equals(SULFURAS)) {
             item.sellIn--;
         }
     }
 
+    // Handles the quality degradation for items past their sell-by date
     private void handleExpiredItem(Item item) {
         if (item.sellIn < 0) {
             if (item.name.equals(AGED_BRIE)) {
@@ -52,6 +56,7 @@ class GildedRose {
         }
     }
 
+    // Updates the quality of special items like "Aged Brie" and "Backstage passes"
     private void updateSpecialItemQuality(Item item) {
         if (item.name.equals(AGED_BRIE)) {
             increaseQuality(item);
@@ -66,20 +71,24 @@ class GildedRose {
         }
     }
 
+    // Checks if an item is a special item like "Aged Brie" or "Backstage passes"
     private boolean isSpecialItem(Item item) {
         return item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES);
     }
 
+    // Checks if an item is a "Conjured" item
     private boolean isConjured(Item item) {
         return item.name.startsWith(CONJURED);
     }
 
+    // Increases the quality of an item, ensuring it does not exceed 50
     private void increaseQuality(Item item) {
         if (item.quality < 50) {
             item.quality++;
         }
     }
 
+    // Decreases the quality of an item, ensuring it does not go below 0
     private void decreaseQuality(Item item) {
         if (item.quality > 0 && !item.name.equals(SULFURAS)) {
             item.quality--;
