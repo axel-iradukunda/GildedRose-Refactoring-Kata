@@ -1,5 +1,9 @@
 # Gilded Rose Release Notes
 
+## Version 1.1.1 (2025-01-08)
+### Improvements
+- **Refactored** the GildedRose class to use an abstract ItemUpdater class and specific subclasses for different item types. This improves code modularity and maintainability.
+
 ## Version 1.1.0 (2025-01-07)
 
 ### New Features
