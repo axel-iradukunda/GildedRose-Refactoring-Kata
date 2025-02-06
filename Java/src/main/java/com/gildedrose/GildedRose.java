@@ -19,16 +19,16 @@ class GildedRose {
     private ItemUpdater createUpdater(Item item) {
         switch (item.name) {
             case "Aged Brie":
-                return new AgedBrieUpdater(item);
+                return AgedBrieUpdater.getInstance(item);
             case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackstagePassesUpdater(item);
+                return BackstagePassesUpdater.getInstance(item);
             case "Sulfuras, Hand of Ragnaros":
-                return new RegularItemUpdater(item); // Sulfuras does not change
+                return RegularItemUpdater.getInstance(item); // Sulfuras does not change
             default:
                 if (item.name.startsWith("Conjured")) {
-                    return new ConjuredItemUpdater(item);
+                    return ConjuredItemUpdater.getInstance(item);
                 } else {
-                    return new RegularItemUpdater(item);
+                    return RegularItemUpdater.getInstance(item);
                 }
         }
     }

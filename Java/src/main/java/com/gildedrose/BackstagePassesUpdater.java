@@ -1,8 +1,18 @@
 package com.gildedrose;
 
 public class BackstagePassesUpdater extends ItemUpdater{
-    public BackstagePassesUpdater(Item item){
+
+    private static BackstagePassesUpdater instance;
+
+    private BackstagePassesUpdater(Item item){
         super(item);
+    }
+
+    public static BackstagePassesUpdater getInstance(Item item){
+        if(instance == null){
+            instance = new BackstagePassesUpdater(item);
+        }
+        return instance;
     }
 
     @Override

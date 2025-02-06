@@ -1,5 +1,7 @@
 # Gilded Rose Release Notes
-
+## Version 1.1.2 (2025-02-06)
+### Improvements
+**Singleton Pattern for ItemUpdater Classes**: Refactored the ItemUpdater subclasses (AgedBrieUpdater, BackstagePassesUpdater, RegularItemUpdater, and ConjuredItemUpdater) to follow the singleton pattern. This ensures that only one instance of each updater is created, improving memory efficiency and consistency.
 ## Version 1.1.1 (2025-01-08)
 ### Improvements
 - **Refactored** the GildedRose class to use an abstract ItemUpdater class and specific subclasses for different item types. This improves code modularity and maintainability.

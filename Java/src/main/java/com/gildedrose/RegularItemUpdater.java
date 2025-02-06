@@ -1,8 +1,17 @@
 package com.gildedrose;
 
 public class RegularItemUpdater extends ItemUpdater{
-    public RegularItemUpdater(Item item){
+    private static RegularItemUpdater instance;
+
+    private RegularItemUpdater(Item item){
         super(item);
+    }
+
+    public static RegularItemUpdater getInstance(Item item){
+        if(instance == null){
+            instance = new RegularItemUpdater(item);
+        }
+        return instance;
     }
 
     @Override
